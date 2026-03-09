@@ -54,3 +54,27 @@ def Iteration_graph(g, iterations):
     plt.grid(True, linestyle="--", linewidth = 0.5, color = 'green')
     plt.legend()
     plt.show()
+
+
+def System_graph():
+    x = np.linspace(-6, 6, 400)
+    y = np.linspace(-6, 6, 400)
+    X, Y = np.meshgrid(x, y)
+
+    # Functions
+    F1 = X**2 + Y**2 - 25
+    F2 = X**3 + Y**3 - 35
+
+    plt.figure(figsize=(6,6))
+    contour1 = plt.contour(X, Y, F1, levels=[0], colors='blue')
+    contour2 = plt.contour(X, Y, F2, levels=[0], colors='red')
+
+    plt.xlabel('x')
+    plt.ylabel('y')
+
+    plt.axhline(0, color='black')
+    plt.axvline(0, color='black')
+
+    plt.title('System of equations')
+    plt.grid(True, linestyle="--", linewidth = 0.5, color = 'green')
+    plt.show()

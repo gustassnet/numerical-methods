@@ -1,3 +1,4 @@
+from scipy.optimize import fsolve
 import methods as mth
 import tables as tbl
 import graphs as gr
@@ -46,3 +47,17 @@ gr.Iteration_graph(g, iterations)
 
 
 # ------------------------------------------------------------------------------------------
+gr.System_graph()
+
+def f(x, y):
+    return x**2 + y**2 - 25
+
+def g(x, y):
+    return x**3 + y**3 - 35
+
+def system(vars):
+    x, y = vars
+    return [f(x, y), g(x, y)]
+
+print(fsolve(system, [3, 4]))
+print(fsolve(system, [-4, 3]))

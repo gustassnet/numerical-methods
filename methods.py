@@ -1,6 +1,3 @@
-import matplotlib.pyplot as plt
-import numpy as np
-
 def Newton_method(f, df, x0, eps):
     # 1. Find where tangent line to a function crosses x-axis
     # Formula: f`(x0) * (x - x0) + f(x0) = 0
