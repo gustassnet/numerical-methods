@@ -1,0 +1,56 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+def Newton_graph(f, df, iterations):
+    x_vals = np.linspace(-10, 10, 400)
+    y_vals = [f(x) for x in x_vals]
+
+    # Function
+    plt.plot(x_vals, y_vals, color='blue', linewidth=2, label="f(x)")
+
+    for i in range(len(iterations) - 1):
+        x0 = iterations[i][0]
+        x1 = iterations[i + 1][0]
+
+        # Tangent line: f`(x0) * (x - x0) + f(x0)
+        tangent = df(x0) * (x_vals - x0) + f(x0)
+        plt.plot(x_vals, tangent, linestyle="--")
+
+        # Intersection with Ox
+        plt.scatter(x1, 0, color = 'red')
+
+    plt.axhline(0, color="black", linewidth=1)
+    plt.axvline(0, color="black", linewidth=1)
+
+    plt.title("Newton method")
+    plt.grid(True, linestyle="--", linewidth = 0.5, color = 'green')
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+
+
+def Iteration_graph(g, iterations):
+    x_vals = np.linspace(-2, 4, 400)
+    y_vals = [g(x) for x in x_vals]
+
+    # g(x)
+    plt.plot(x_vals, y_vals, label="g(x)", color="blue")
+
+    # y = x
+    plt.plot(x_vals, x_vals, label="y = x", color="red")
+
+    for i in range(len(iterations) - 1):
+        x0 = iterations[i][0]
+        x1 = iterations[i+1][0]
+
+        plt.plot([x0, x0], [x0, x1], color="green")
+
+        plt.plot([x0, x1], [x1, x1], color="green")
+
+    plt.axhline(0, color="black", linewidth=1)
+    plt.axvline(0, color="black", linewidth=1)
+
+    plt.title("Iteration method")
+    plt.grid(True, linestyle="--", linewidth = 0.5, color = 'green')
+    plt.legend()
+    plt.show()
