@@ -110,7 +110,7 @@ The system size varies from 10 to 500.
 
 Execution times are measured separately to distinguish the cost of matrix decomposition from the cost of solving the resulting triangular systems.
 
-![LU Performance](My-time.png)
+![LU Performance](My_time.png)
 
 ### SciPy Solver Comparison
 
@@ -125,6 +125,7 @@ The system size varies from 10 to 400.
 
 All methods are tested using the same generated matrices and initial solution vectors.
 
+![SciPy Performance](Others.png)
 ### Visualization
 
 Matplotlib is used to visualize execution times.
